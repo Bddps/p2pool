@@ -135,16 +135,11 @@ class WorkerBridge(worker_interface.WorkerBridge):
         return (my_shares_not_in_chain - my_doa_shares_not_in_chain, my_doa_shares_not_in_chain), my_shares, (orphans_recorded_in_chain, doas_recorded_in_chain)
     
     def get_user_details(self, user):
-        desired_pseudoshare_target = None
+        desired_pseudoshare_target = bitcoin_data.difficulty_to_target(float("0.00058207"))
         if '+' in user:
             user, desired_pseudoshare_difficulty_str = user.rsplit('+', 1)
             try:
                 desired_pseudoshare_target = bitcoin_data.difficulty_to_target(float(desired_pseudoshare_difficulty_str))
-            except:
-                pass
-        else:
-            try:
-                desired_pseudoshare_target = bitcoin_data.difficulty_to_target(float("0.00058207"))
             except:
                 pass
         

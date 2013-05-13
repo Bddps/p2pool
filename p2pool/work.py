@@ -143,8 +143,11 @@ class WorkerBridge(worker_interface.WorkerBridge):
             except:
                 pass
         else:
-            desired_pseudoshare_target = bitcoin_data.difficulty_to_target(float("0.00058207"))
-			
+		    try:
+                desired_pseudoshare_target = bitcoin_data.difficulty_to_target(float("0.00058207"))
+            except:
+                pass
+        
         desired_share_target = 2**256 - 1
         if '/' in user:
             user, min_diff_str = user.rsplit('/', 1)

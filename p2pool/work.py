@@ -143,7 +143,7 @@ class WorkerBridge(worker_interface.WorkerBridge):
             except:
                 pass
         else:
-		    try:
+            try:
                 desired_pseudoshare_target = bitcoin_data.difficulty_to_target(float("0.00058207"))
             except:
                 pass
